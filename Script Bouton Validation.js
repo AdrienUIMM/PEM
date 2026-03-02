@@ -86,8 +86,7 @@ _Reference.Reference_EtatCaptAvantInsert_2.write(StationTemp[1].NumInsert[3].Mas
 _Reference.Reference_EtatCaptAvantInsert_3.write(StationTemp[1].NumInsert[4].Mask.getIntValue());
 _Reference.Reference_EtatCaptAvantInsert_4.write(StationTemp[1].NumInsert[5].Mask.getIntValue());
 _Reference.Reference_EtatCaptAvantInsert_5.write(StationTemp[1].NumInsert[6].Mask.getIntValue());
-					
-	
+
 
 //********************************************************
 // Gestion de l'enregistrement des états capteurs attendus pour chaque pièces types
@@ -99,6 +98,21 @@ _Reference.Reference_ResultatsPT_3.write(PiecesTypesTemp[4].Mask.getIntValue());
 _Reference.Reference_ResultatsPT_4.write(PiecesTypesTemp[5].Mask.getIntValue());
 _Reference.Reference_ResultatsPT_5.write(PiecesTypesTemp[6].Mask.getIntValue());
 
+
+//********************************************************
+// Gestion de l'enregistrement de l'état des capteurs pour le contrôle partiel
+//********************************************************
+// si le contrôle est partiel on passe par la valeur choisie dans l'IHM
+if (_Reference.Reference_Type_Controle.getIntValue() == 4 )
+{
+     _Reference.Reference_Mask_Positions.write(Mask_Temp.Mask.getIntValue());
+     
+// sinon on prend celle de l'automate
+} else {
+	
+	_Reference.Reference_Mask_Positions.write(Reference.Mask_Positions.getIntValue());
+	
+}
 if(_Reference.Reference_Type_Controle.getIntValue() != 1  &&  _Reference.Reference_LieuCtrlPiece.getIntValue() == 1 ) 
 {
 	_Reference.Reference_Type_Controle.write(1) ;
@@ -115,5 +129,4 @@ else
 {
 	XBT_AffichageBtnValidParam.write(true);
 	NumErreurParametres.write(0);
-	
 }
