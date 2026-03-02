@@ -1,0 +1,16 @@
+TYPE T_Reference :
+STRUCT
+    NbPcesParUc           : INT;
+    NbLitsBacs            : INT;
+    LieuCtrlPiece         : INT;
+    NbCaptCtrlHorsPresse  : INT;
+    NbPT                  : INT;
+    NbInserts             : INT;
+
+    ResultatsPT           : ARRAY[1..6] OF INT;
+
+    EtatCaptAvantInsert   : ARRAY[1..6] OF INT;
+
+    Type_Controle         : INT;   // 1 : Normal  2 : ...
+END_STRUCT
+END_TYPE
